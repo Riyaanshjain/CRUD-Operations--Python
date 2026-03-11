@@ -2,8 +2,8 @@ from pathlib import Path
 def readmyfilesandfolders():
     path = Path('')
     items = list(path.rglob('*'))
-    for i,items in enumerate(items):
-        print(f"{i+1} : {items}")
+    for i,item in enumerate(items):
+        print(f"{i+1} : {item}")
 
 def create_file():
     try: 
@@ -52,7 +52,7 @@ def update_file():
                 print("You have successfully appended the file")
             else:
                 print("NAME OF THE FILE IS NOT IN THIS REPO")
-        if choice_update == 2:
+        elif choice_update == 2:
             name_update_rename = input("Enter the name of the file you wanna edit: ")
             p3 = Path(name_update_rename)
             if p3.exists() and p3.is_file():
@@ -62,7 +62,7 @@ def update_file():
                 print("FILE NAME SUCCESSFULLY CHANGED ")
             else:
                 print("NO FILE FOUNDED!!!")
-        if choice_update == 3:
+        elif choice_update == 3:
             name_of_file = input("Enter the name of the file you want to overwrite: ")
             p4 = Path(name_of_file)
             if p4.exists() and p4.is_file():
@@ -94,16 +94,19 @@ while True:
     print("Press 4 for DELETING a file")
     print("Press 5 for EXIT")
 
+    try:
+        choice = int(input("Enter your choice: "))
 
-    choice = int(input("Enter your choice: "))
-    if choice == 1:
-        create_file()
-    elif choice == 2:
-        read_files()
-    elif choice == 3: 
-        update_file()
-    elif choice == 4: 
-        delete_file()
-    elif choice == 5:
-        print("THANK YOU FOR USING MY PROGRAM")
-        break
+        if choice == 1:
+            create_file()
+        elif choice == 2:
+            read_files()
+        elif choice == 3: 
+            update_file()
+        elif choice == 4: 
+            delete_file()
+        elif choice == 5:
+            print("THANK YOU FOR USING MY PROGRAM")
+            break
+    except Exception as error:
+        print(f"AN ERROR HAS OCCURRED AS {error}")
