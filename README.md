@@ -23,7 +23,7 @@ It allows users to perform basic CRUD operations on files in the current directo
 ## How to Run
 
 ```bash
-python main.py
+python Basic-CRUD-Operations.py
 ```
 
 ## Example Menu
